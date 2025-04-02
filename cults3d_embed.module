@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @file
+ * Contains cults3d_embed.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function cults3d_embed_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.cults3d_embed':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The Cults3D Embed module provides a field type for embedding Cults3D 3D models.') . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function cults3d_embed_theme() {
+  return [
+    'cults3d_embed' => [
+      'variables' => [
+        'name' => NULL,
+        'summary' => NULL,
+        'author' => NULL,
+        'author_avatar' => NULL,
+        'image_url' => NULL,
+        'likes_count' => NULL,
+        'download_count' => NULL,
+        'view_count' => NULL,
+        'model_url' => NULL,
+        'logo_path' => NULL,
+        'attributes' => [],
+      ],
+      'template' => 'cults3d-embed',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for cults3d_embed.
+ */
+function cults3d_embed_preprocess_cults3d_embed(array &$variables) {
+  // Get the module path to use for the logo image.
+  $module_path = \Drupal::service('extension.list.module')->getPath('cults3d_embed');
+  $variables['logo_path'] = '/' . $module_path . '/images/cults3d-logo.png';
+}

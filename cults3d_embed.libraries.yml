@@ -1,0 +1,11 @@
+cults3d_embed_cults3d_embed:
+  css:
+    component:
+      css/cults3d-embed-cults3d-embed-widget.css: {}
+cults3d-embed:
+  version: 1.x
+  css:
+    theme:
+      css/cults3d-embed.css: {}
+  assets:
+    images/cults3d-logo.png: {}

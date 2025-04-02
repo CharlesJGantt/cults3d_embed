@@ -1,0 +1,7 @@
+name: 'Cults3D Embed'
+type: module
+description: 'Provides a field type for embedding Cults3D 3D models.'
+package: Custom
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:field

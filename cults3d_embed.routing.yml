@@ -1,0 +1,7 @@
+cults3d_embed.cults3_d_settings:
+  path: '/admin/config/content/cults3d-embed'
+  defaults:
+    _title: 'Cults3D Embed Settings'
+    _form: 'Drupal\cults3d_embed\Form\Cults3DSettingsForm'
+  requirements:
+    _permission: 'administer site configuration'

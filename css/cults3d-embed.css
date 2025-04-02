@@ -1,0 +1,135 @@
+.cults3d-embed {
+  font-family: Arial, sans-serif;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  width: 640px; /* Fixed width */
+  margin: 15px 0; /* Add vertical margin */
+}
+
+.cults3d-embed .thumbnail {
+  background-position: center;
+  background-size: cover;
+  flex-shrink: 0;
+  width: 190px;
+  height: 190px;
+}
+
+.cults3d-embed .content {
+  padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 190px - 30px); /* Calculate proper width */
+  overflow: hidden;
+}
+
+.cults3d-embed .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.cults3d-embed .model-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 330px;
+  flex: 1;
+}
+
+.cults3d-embed .logo-container {
+  text-decoration: none;
+  margin-left: 10px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.cults3d-embed .cults3d-logo-img {
+  height: 18px;
+  width: auto;
+  margin-top: 3px;
+}
+
+.cults3d-embed .author {
+  color: #555;
+  margin: 0 0 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.cults3d-embed .author-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.cults3d-embed .summary {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.4;
+  max-height: 54px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.cults3d-embed .stats-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 10px;
+  background-color: transparent;
+  width: 100%;
+}
+
+.cults3d-embed .stats {
+  display: flex;
+  gap: 20px;
+  color: #555;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.cults3d-embed .stat {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.cults3d-embed .stat-icon {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.cults3d-embed .view-button {
+  background-color: #ff4c65; /* Cults3D brand color */
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cults3d-embed .view-button:hover {
+  background-color: #e64258;
+}
