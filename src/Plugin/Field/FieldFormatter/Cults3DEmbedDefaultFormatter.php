@@ -1,30 +1,18 @@
-/**
- * Fetch model data from Cults3D GraphQL API.
- *
- * @param string $model_id
- *   The Cults3D model ID.
- * @param string $api_key
- *   The Cults3D API key.
- *
- * @return array|null
- *   The model data or NULL if not found.
- */
 protected function fetchModelData($model_id, $api_key) {
   try {
-    // GraphQL query for Cults3D using slug format
+    // GraphQL query for Cults3D using slug format from example
     $query = <<<GRAPHQL
 {
   creation(slug: "$model_id") {
     name(locale: EN)
-    url: shortUrl
-    description
-    downloadCount: downloadsCount
-    viewCount: viewsCount
-    likesCount
+    shortUrl
     illustrationImageUrl
+    viewsCount
+    likesCount
+    downloadsCount
     creator {
       nick
-      avatarUrl: imageUrl
+      shortUrl
     }
   }
 }
@@ -58,10 +46,10 @@ GRAPHQL;
       // Restructure data to match what our formatter expects
       return [
         'name' => $creation['name'],
-        'url' => $creation['url'],
-        'description' => $creation['description'] ?? '',
-        'downloadCount' => $creation['downloadCount'] ?? 0,
-        'viewCount' => $creation['viewCount'] ?? 0,
+        'url' => $creation['shortUrl'],
+        'description' => '', // No description in this query
+        'downloadCount' => $creation['downloadsCount'] ?? 0,
+        'viewCount' => $creation['viewsCount'] ?? 0,
         'likesCount' => $creation['likesCount'] ?? 0,
         'images' => [
           [
@@ -70,7 +58,7 @@ GRAPHQL;
         ],
         'creator' => [
           'nick' => $creation['creator']['nick'] ?? 'Unknown Author',
-          'avatarUrl' => $creation['creator']['avatarUrl'] ?? '',
+          'avatarUrl' => '', // No avatar URL in this query
         ],
       ];
     }
@@ -83,10 +71,3 @@ GRAPHQL;
 
   return NULL;
 }
-@FieldFormatter(
-  id = "cults3d_embed_default",
-  label = @Translation("Cults3D Embed"),
-  field_types = {
-    "cults3d_embed"
-  }
-)
