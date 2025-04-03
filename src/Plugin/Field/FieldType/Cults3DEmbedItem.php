@@ -15,7 +15,7 @@ use Drupal\Core\Form\FormStateInterface;
  *   label = @Translation("Cults3D Embed"),
  *   description = @Translation("Stores a Cults3D URL and displays model data from the Cults3D API."),
  *   default_widget = "cults3d_embed_url",
- *   default_formatter = "cults3d_embed_cults3d_embed_default"
+ *   default_formatter = "cults3d_embed_default"
  * )
  */
 class Cults3DEmbedItem extends FieldItemBase {

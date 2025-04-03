@@ -1,11 +1,9 @@
-
-# Default value.
-field.value.cults3d_embed_cults3d_embed:
+field.value.cults3d_embed:
   type: mapping
   label: Default value
   mapping:
-    cults_url:
-      type: uri
+    url:
+      type: string
       label: URL
     model_id:
       type: string
@@ -14,11 +12,10 @@ field.value.cults3d_embed_cults3d_embed:
       type: integer
       label: Timestamp
 
-# Schema for the configuration files of the Cults3d embed module.
 cults3d_embed.settings:
   type: config_object
   label: 'Cults3d embed settings'
   mapping:
-    example:
+    api_key:
       type: string
-      label: 'Example'
+      label: 'API Key'

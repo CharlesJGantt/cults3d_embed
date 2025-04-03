@@ -4,3 +4,18 @@
  * @file
  * Install, update and uninstall functions for the Cults3D Embed module.
  */
+/**
+ * Implements hook_install().
+ */
+function cults3d_embed_install() {
+  \Drupal::messenger()->addMessage(t('Cults3D Embed module has been installed.'));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function cults3d_embed_uninstall() {
+  // Clear any cached data related to this module.
+  \Drupal::cache()->invalidateMultiple(['cults3d_embed:*']);
+  \Drupal::messenger()->addMessage(t('Cults3D Embed module has been uninstalled.'));
+}

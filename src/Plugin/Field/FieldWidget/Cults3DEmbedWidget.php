@@ -23,17 +23,17 @@ class Cults3DEmbedWidget extends WidgetBase {
    * {@inheritdoc}
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
-    $element['url'] = [
-      '#type' => 'url',
-      '#title' => $this->t('Cults3D URL'),
-      '#description' => $this->t('Enter a URL like https://cults3d.com/en/3d-model/game/example-model'),
-      '#default_value' => isset($items[$delta]->url) ? $items[$delta]->url : NULL,
-      '#maxlength' => 2048,
-      '#required' => $element['#required'],
-      '#placeholder' => 'https://cults3d.com/en/3d-model/game/example-model',
-    ];
-    return $element;
-  }
+  $element['url'] = [  // This must match the property name in propertyDefinitions
+    '#type' => 'url',
+    '#title' => $this->t('Cults3D URL'),
+    '#description' => $this->t('Enter a URL like https://cults3d.com/en/3d-model/game/example-model'),
+    '#default_value' => isset($items[$delta]->url) ? $items[$delta]->url : NULL,
+    '#maxlength' => 2048,
+    '#required' => $element['#required'],
+    '#placeholder' => 'https://cults3d.com/en/3d-model/game/example-model',
+  ];
+  return $element;
+}
 
   /**
    * {@inheritdoc}
